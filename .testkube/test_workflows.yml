@@ -1,0 +1,5 @@
+always_run:
+  - k6-smoke
+  - go-go
+ignore:
+  - node-package
