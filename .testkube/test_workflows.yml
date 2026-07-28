@@ -1,5 +1,7 @@
 always_run:
-  - k6-smoke
   - go-go
 ignore:
   - node-package
+conditionals:
+  - workflows: [k6-smoke]
+    when_paths: ["perf/**"]
