@@ -1,5 +1,11 @@
-# Scenario 1: only legacy keys (no `workflows:` section)
-# Expected: our user-authored branch is skipped, legacy auto-gen path runs
-always_run:
-  - buarki-github-app-test-suite
-ignore: []
+# Scenario 3: pr-integration-fixture requires pkg/** to run
+# Expected: PR touching README.md only runs pr-unit-fixture (integration excluded by matcher)
+workflows:
+  - name: pr-unit-fixture
+    on: [pull_request]
+    required: true
+
+  - name: pr-integration-fixture
+    on: [pull_request]
+    paths: ["pkg/**"]
+    required: true
