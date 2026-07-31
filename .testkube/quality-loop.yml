@@ -1,3 +1,5 @@
+# Scenario 3: pr-integration-fixture requires pkg/** to run
+# Expected: PR touching README.md only runs pr-unit-fixture (integration excluded by matcher)
 workflows:
   - name: pr-unit-fixture
     on: [pull_request]
