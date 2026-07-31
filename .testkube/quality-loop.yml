@@ -1,5 +1,8 @@
-# Scenario 3: pr-integration-fixture requires pkg/** to run
-# Expected: PR touching README.md only runs pr-unit-fixture (integration excluded by matcher)
+# Scenario 5: pr-flaky-fixture is required=false (fails on purpose)
+# Expected: parent has 2 steps.
+#   - required-user-workflows: 2 workflows in parallel, both pass, step passes
+#   - optional-user-workflows: 1 workflow, fails, but Optional=true so parent status not affected
+# Quality gate = passed, PR not blocked.
 workflows:
   - name: pr-unit-fixture
     on: [pull_request]
@@ -7,5 +10,8 @@ workflows:
 
   - name: pr-integration-fixture
     on: [pull_request]
-    paths: ["pkg/**"]
     required: true
+
+  - name: pr-flaky-fixture
+    on: [pull_request]
+    required: false
