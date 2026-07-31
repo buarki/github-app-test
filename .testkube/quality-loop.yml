@@ -1,9 +1,5 @@
-workflows:
-  - name: pr-unit-fixture
-    on: [pull_request]
-    required: true
-
-  - name: pr-integration-fixture
-    on: [pull_request]
-    paths: ["pkg/**"]
-    required: true
+# Scenario 1: only legacy keys (no `workflows:` section)
+# Expected: our user-authored branch is skipped, legacy auto-gen path runs
+always_run:
+  - buarki-github-app-test-suite
+ignore: []
