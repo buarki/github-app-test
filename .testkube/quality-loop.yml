@@ -1,0 +1,9 @@
+workflows:
+  - name: pr-unit-fixture
+    on: [pull_request]
+    required: true
+
+  - name: pr-integration-fixture
+    on: [pull_request]
+    paths: ["pkg/**"]
+    required: true
