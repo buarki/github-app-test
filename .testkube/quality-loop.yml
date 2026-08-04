@@ -1,9 +1,8 @@
 workflows:
-  - name: pr-unit-fixture
+  - name: demo-unit
     on: [pull_request]
     required: true
-
-  - name: pr-integration-fixture
+  - name: demo-integration
     on: [pull_request]
-    paths: ["pkg/**"]
-    required: true
+    paths: ["src/**"]
+    required: false
