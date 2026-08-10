@@ -1,8 +1,0 @@
-workflows:
-  - name: demo-unit
-    on: [pull_request]
-    required: true
-  - name: demo-integration
-    on: [pull_request]
-    paths: ["src/**"]
-    required: false
